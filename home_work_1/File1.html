@@ -7,6 +7,63 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Привет</h1>
+    
+    <script>
+
+        var name;
+        var surname;
+        var prename;
+        var age;
+        var pol;
+
+        do { 
+        var name = prompt('введите имя'); 
+        } 
+        while ( name.length < 2 || name === 'null' || !isNaN(name)); 
+        do { 
+        var surname = prompt('введите фамилию'); 
+        } 
+        while ( !isNaN(surname)); 
+        do { 
+        var prename = prompt('введите Отчество'); 
+        } 
+        while ( !isNaN(prename)); 
+        do { 
+        var age = prompt('Сколько Вам лет?'); 
+        var agePar = parseInt(age); 
+        } 
+        while ( agePar > 100  || isNaN(agePar)); 
+        
+        var pol = confirm("Нажми ок если мужик");
+        if (pol) {
+            pol = "мужской"
+        } else {
+            pol = "женский"
+        };
+        
+        var pensiy;
+        if (pol === true || age > 65) {
+            pensiy = 'да'
+        } else if ( pol === false || age > 58) {
+            pensiy = 'да'
+        } else {
+            pensiy = 'нет'
+        }
+        
+        // ваше ФИО: Иванов Иван Иванович
+        // ваш возраст в годах: 20
+        // ваш возраст в днях: 7300
+        // через 5 лет вам будет: 25
+        // ваш пол: мужской
+        // вы на пенсии: нет
+
+alert ("ФИО:" +' ' + name +' ' + prename +' ' + surname +' '  + '\n'
+    + "Ваш возраст в годах:" +' ' + age  + '\n'
+    + 'ваш возраст в днях:' + ' ' + age*365  + '\n'
+    + 'Ваш пол:' + ' ' + pol  + '\n'
+    + 'Вы на пенсии:' + ' ' + pensiy
+    )
+
+    </script>
 </body>
 </html>
