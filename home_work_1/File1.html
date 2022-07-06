@@ -9,7 +9,7 @@
 <body>
     
     <script>
-        let name;
+        let names;
         let surname;
         let prename;
         let age;
@@ -17,10 +17,10 @@
 		let agePar;
 
         do { 
-        name = prompt('введите имя'); 
+        names = prompt('введите имя'); 
         } 
-        while ( name.length < 2 || name === 'null' || !isNaN(name)); 
-        do { 
+        while ( name.length < 2 || !isNaN(name)); 
+        do {
         surname = prompt('введите фамилию'); 
         } 
         while ( !isNaN(surname)); 
@@ -33,21 +33,12 @@
         agePar = parseInt(age); 
         } 
         while ( agePar > 100  || isNaN(agePar)); 
-        pol = confirm("Нажми ок если мужик");
-        if (pol) {
-            pol = "мужской"
-        } else {
-            pol = "женский"
-        };
+        pol = confirm("Нажми ок если мужик");5
+		pol ? pol = "мужской" : pol = "женский";
         let pensiy;
-        if (pol && age > 65) {
-            pensiy = 'да'
-        } else if ( pol && age > 58) {
-            pensiy = 'да'
-        } else {
-            pensiy = 'нет'
-        }
-alert ("ФИО:" +' ' + name +' ' + prename +' ' + surname +' '  + '\n'
+		pol == "мужской" && age > 65 ? pensiy = 'да' : pol == "женский" && age > 58 ? pensiy = 'да': pensiy = 'нет';
+
+alert ("ФИО:" +' ' + names +' ' + prename +' ' + surname +' '  + '\n'
     + "Ваш возраст в годах:" +' ' + age  + '\n'
     + 'ваш возраст в днях:' + ' ' + age*365  + '\n'
     + 'Ваш пол:' + ' ' + pol  + '\n'
