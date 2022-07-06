@@ -9,35 +9,37 @@
 <body>
     
     <script>
-        var name;
-        var surname;
-        var prename;
-        var age;
-        var pol;
+        let name;
+        let surname;
+        let prename;
+        let age;
+        let pol;
+		let agePar;
+
         do { 
-        var name = prompt('введите имя'); 
+        name = prompt('введите имя'); 
         } 
         while ( name.length < 2 || name === 'null' || !isNaN(name)); 
         do { 
-        var surname = prompt('введите фамилию'); 
+        surname = prompt('введите фамилию'); 
         } 
         while ( !isNaN(surname)); 
         do { 
-        var prename = prompt('введите Отчество'); 
+        prename = prompt('введите Отчество'); 
         } 
         while ( !isNaN(prename)); 
         do { 
-        var age = prompt('Сколько Вам лет?'); 
-        var agePar = parseInt(age); 
+        age = prompt('Сколько Вам лет?'); 
+        agePar = parseInt(age); 
         } 
         while ( agePar > 100  || isNaN(agePar)); 
-        var pol = confirm("Нажми ок если мужик");
+        pol = confirm("Нажми ок если мужик");
         if (pol) {
             pol = "мужской"
         } else {
             pol = "женский"
         };
-        var pensiy;
+        let pensiy;
         if (pol && age > 65) {
             pensiy = 'да'
         } else if ( pol && age > 58) {
@@ -51,7 +53,6 @@ alert ("ФИО:" +' ' + name +' ' + prename +' ' + surname +' '  + '\n'
     + 'Ваш пол:' + ' ' + pol  + '\n'
     + 'Вы на пенсии:' + ' ' + pensiy
     )
-
     </script>
 </body>
 </html>
