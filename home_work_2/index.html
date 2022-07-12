@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+ let mass = [ 5, 7, 
+        [ 4, [2], 8, [1,3], 2 ], 
+        [ 9, [] ], 
+        1, 8
+      ];
+let o = 0;
+function f(arr){
+  for (let k in arr){
+    if (typeof(arr[k]) == 'object'){
+      f(arr[k])
+    }
+    else {
+      console.log(o+=arr[k])
+    }
+  }
+}
+f(mass)
+
+</script>
+
+</body>
+</html>
