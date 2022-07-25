@@ -10,21 +10,24 @@
     
 
 <script>
- let mass = [ 5, 7, 
+
+      let mass = [ 5, 7, 
         [ 4, [2], 8, [1,3], 2 ], 
         [ 9, [] ], 
         1, 8
       ];
-let o = 0;
 function f(arr){
-  for (let k in arr){
-    if (typeof(arr[k]) == 'object'){
-      f(arr[k])
+  let o = 0;
+  for (let k = 0; k < arr.length; k++){
+    if (Array.isArray(arr[k])){
+      o+=f(arr[k]);
     }
     else {
-      console.log(o+=arr[k])
+      o+=arr[k];
     }
   }
+  console.log(o);
+  return o;
 }
 f(mass)
 
