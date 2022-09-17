@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="addtext">
+    <span>Добавить h1</span><input type="text" name="addH1" id="H1"> <button onclick="add('H1')">add</button> <br>
+    <span>Добавить p</span><input type="text" name="addP" id="P"> <button onclick="add('P')">add</button><br>
+    <span>Добавить span</span><input type="text" name="addSpan" id="Span"> <button onclick="add('Span')">add</button>
+    </div>
+    <script>
+        const add = (x) => {
+        const newH1 =  document.getElementById(x).value;
+        const addEl = document.createElement(x)
+        
+        console.log(newH1)
+        console.log(addEl)    
+        }
+    
+    </script>
+</body>
+</html>

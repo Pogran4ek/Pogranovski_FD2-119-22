@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Название коктейля" name="coctails"> <input type="checkbox" name="alc"> <span>Алкогольный?</span> <br>
+    <textarea name="sostav" id="" cols="45" rows="5" placeholder="Введите состав в строку, без запятых, разделяя пробелом"></textarea><br>
+    <input type="button" value="ввод информации о напитке" onclick="addCoctail()"><br>
+    <input type="button" value="получение инфо о напитке" onclick="getCoctail()"><br>
+    <input type="button" value="удаление инфо о напитке" onclick="deleteCoctail()"><br>
+    <input type="button" value="перечень всех напитков" onclick="getCoctail()">
+    <div id="info"></div>
+    <script>
+
+        const allDrink = new Obj();
+
+        function addCoctail () {
+            const addDrink = document.querySelector('[name="coctails"]').value;
+            const alcohol = document.querySelector('[name="alc"]').checkbox;
+            const options = document.querySelector('[name="sostav"]').value;
+
+            allDrink.addValue(addDrink, {'alcohol' : alcohol, 'options':options.split(' ') })
+        }
+
+        function getCoctail() {
+            const blockInfo = document.getElementById('info');
+            const coctailsName = document.querySelector('[name="coctails"]').value;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .top {
+        position: relative;
+        width: 1000px;
+        height: 500px;
+        background-color: gray
+    }
+    .box {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        border-radius: 30px;
+    }
+</style>
+</head>
+<body>
+    <div class="top">
+        <div class="box">
+        </div>
+    </div>
+
+
+    <script>
+
+
+        const item = document.getElementsByClassName('box')[0]
+        let leftCoord = 0;
+        let topCoord = 0
+        console.log(item)
+        window.addEventListener ('keydown', (e) => {
+                switch (e.keyCode) {
+                    case 68: leftCoord > 943 ? leftCoord :  leftCoord+=10; break;
+                    case 65: leftCoord < 10 ? leftCoord : leftCoord-=10; break;
+                    case 87: topCoord < 10 ? topCoord : topCoord-=10; break;
+                    case 83: topCoord > 440 ? topCoord : topCoord+=10; break;
+                }
+                item.style.left = leftCoord + 'px';
+                item.style.top = topCoord + 'px';
+        })
+    </script>
+</body>
+</html>
