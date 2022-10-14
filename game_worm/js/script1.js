@@ -17,42 +17,11 @@ const popap = document.getElementById('newElem');
 
 const musik = document.getElementById('track');
 
-let nameUser;
-
-let nameStorage;
-
-
-
 function gomusic() {
     musik.play();
 }
 const box = 50;
 let caunt = 0;
-
-function addUser () {
-    nameUser = document.querySelector('input[name="userName"]').value;
-    localStorage.setItem("name", nameUser)
-}
-
-function checkLocalStorage() {
-
-    if (localStorage.getItem('name')) {
-        nameStorage = localStorage.getItem('name')
-        console.log(nameStorage)
-    }
-    
-}
-
-checkLocalStorage();
-
-    function localResult() {
-        for(let i=0; i<localStorage.length; i++) {
-            let key = localStorage.key(i);
-            console.log(`${key}: ${localStorage.getItem(key)}`);
-          }
-    }
-
-    localResult()
 
 let dir;
 
@@ -64,9 +33,6 @@ snake[0] = {
     x: 6 * box,
     y: 5 * box
 };
-
-let objCaunts = [
-    ];
 
 
 function newFood (){
@@ -111,13 +77,11 @@ function drawGame () {
 
     for(let i=0; i<snake.length; i++) {
         ctx.drawImage( i == 0? snakeImg: finishSnakeImg, snake[i].x, snake[i].y, box, box);
-    };
-
+    }
 
     ctx.fillStyle = 'white';
     ctx.font = '50px Arial';
-    ctx.fillText(nameStorage+': '+caunt, box*2.2, box*0.9);
-
+    ctx.fillText(caunt, box*5.2, box*0.9);
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
@@ -133,10 +97,8 @@ function drawGame () {
     if (snakeX < box || snakeX > box * 12 || snakeY < box|| snakeY > box * 10) {
         popap.style.display = 'block';
         clearInterval(game)
-        localStorage.setItem(nameUser, caunt)
     }
 
-    
 
     if (dir=='left') snakeX -= box;
     if (dir=='right') snakeX += box;
