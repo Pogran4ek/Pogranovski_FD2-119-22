@@ -11,7 +11,7 @@ const snakeImg = new Image();
 snakeImg.src = 'img/snak.png';
 
 const finishSnakeImg = new Image();
-finishSnakeImg.src = 'img/food.png';
+finishSnakeImg.src = 'img/snak2.png';
 
 const popap = document.getElementById('newElem');
 
@@ -23,11 +23,16 @@ let nameStorage;
 
 
 
+
 function gomusic() {
     musik.play();
 }
 const box = 50;
 let caunt = 0;
+
+let finishGame = document.querySelector('.blockRepit');
+
+
 
 function addUser () {
     nameUser = document.querySelector('input[name="userName"]').value;
@@ -96,11 +101,12 @@ function e (event) {
     else if(event.keyCode == 40 && dir !='up')
     dir = 'down';
 }
-
+// кусает себя за хвост
 function eatSnakeSelf (head, body) {
     for (i=0; i<body.length; i++) {
         if (head.x == body[i].x && head.y == body[i].y) {
         popap.style.display = 'block';
+        localStorage.setItem(nameUser, caunt)
     }
     }
 }
@@ -129,11 +135,12 @@ function drawGame () {
     } else {
         snake.pop();
     }
-
+    // врезается в стену
     if (snakeX < box || snakeX > box * 12 || snakeY < box|| snakeY > box * 10) {
         popap.style.display = 'block';
         clearInterval(game)
         localStorage.setItem(nameUser, caunt)
+        finish(nameUser, caunt)
     }
 
     
@@ -169,3 +176,18 @@ let newRepits = () => {
     popap.style.display = 'none';
     game = setInterval(drawGame, 200);
 }
+
+
+function finish(imya, ochki) {
+let htmlStr = '';
+for (let i=0; i<1; i++){
+    htmlStr = `
+    <div class="blockRepit">
+        Не повезло, давай повторим? <br>
+        <button onclick="newRepits()">Заново</button><br>
+        <p>${imya} твой результат ${ochki}</p>
+    </div>
+   `
+}
+
+finishGame.innerHTML = htmlStr;}
