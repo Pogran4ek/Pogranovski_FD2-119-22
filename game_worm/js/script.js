@@ -116,7 +116,7 @@ function drawGame () {
 
     ctx.fillStyle = 'white';
     ctx.font = '50px Arial';
-    ctx.fillText(nameStorage+': '+caunt, box*2.2, box*0.9);
+    ctx.fillText((nameUser?nameUser:nameStorage)+': '+caunt, box*2.2, box*0.9);
 
 
     let snakeX = snake[0].x;
