@@ -21,10 +21,6 @@ let caunt = 0;
 let dir;
 
 
-let food = {
-    x: Math.floor(Math.random() * 12 + 1) * box,
-    y: Math.floor(Math.random() * 10 + 1) * box
-};
 
 let snake = [];
 snake[0] = {
